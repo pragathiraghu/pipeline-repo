@@ -1,0 +1,54 @@
+pipeline {
+    agent any
+
+    // Define environment variables
+    environment {
+        GIT_REPO = 'https://github.com/your-username/your-repo.git'
+        BRANCH = 'main'
+    }
+
+    stages {
+        stage('Checkout Code') {
+            steps {
+                // Checkout code from GitHub
+                git branch: "${BRANCH}", url: "${GIT_REPO}"
+            }
+        }
+
+        stage('Build and Test') {
+            parallel {
+                stage('Build') {
+                    steps {
+                        echo 'Building the project...'
+                        // Add build commands, e.g., ./gradlew build
+                    }
+                }
+                stage('Test') {
+                    steps {
+                        echo 'Running tests...'
+                        // Add test commands, e.g., ./gradlew test
+                    }
+                }
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo 'Deploying application...'
+                // Add deployment commands
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build succeeded!'
+        }
+        failure {
+            echo 'Build failed. Check the logs.'
+        }
+        always {
+            echo 'Pipeline execution complete.'
+        }
+    }
+}
