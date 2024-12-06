@@ -1,0 +1,17 @@
+pipeline {
+   agent any 
+
+   environment {MY_ENV = 'hello jenkins'}
+ 
+    stages{
+        stage ('build stage') {
+            steps{
+
+                echo " this my bulid stage "
+                echo " this is my enivromental variable : ${MY-ENV} "
+
+            }
+        }
+    }
+
+}
