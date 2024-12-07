@@ -1,7 +1,9 @@
 pipeline {
    agent any 
 
-   environment {MY_ENV = 'hello jenkins'}
+   environment {
+               MY_ENV = 'hello jenkins'
+      }
  
     stages{
         stage ('build stage') {
