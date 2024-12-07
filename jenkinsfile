@@ -11,16 +11,6 @@ pipeline {
                 echo " this is my enivromental variable : ${MY-ENV} "
 
                    }
-          }
-
-            stage('Run Specific File') {
-            steps {
-                // Navigate to the file's location and run it
-                sh '''
-                chmod +x jenkinsfile.sh     # Make the file executable
-                ./jenkinsfile.sh            # Run the file
-                '''
-}
-}
+        }
 }
 }
