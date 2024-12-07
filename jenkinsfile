@@ -10,7 +10,7 @@ pipeline {
             steps{
 
                 echo " this my bulid stage "
-                echo " this is my enivromental variable : ${MY-ENV} "
+                echo " this is my enivromental variable : ${MY_ENV} "
 
                    }
               }
